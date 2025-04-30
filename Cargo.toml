@@ -7,7 +7,7 @@ description = "Wrap a standalone FFmpeg binary in an intuitive Iterator interfac
 authors = ["Nathan Babcock <nathan.r.babcock@gmail.com>"]
 categories = ["multimedia"]
 keywords = ["ffmpeg", "video"]
-repository = "https://github.com/nathanbabcock/ffmpeg-sidecar"
+repository = "https://github.com/omkar-p-g/ffmpeg-sidecar"
 readme = "README.md"
 license = "MIT"
 
@@ -27,7 +27,7 @@ named_pipes = ["dep:winapi", "dep:nix"]
 tar = { version = "0.4.42", optional = true }
 
 [target.'cfg(any(target_os = "windows", target_os = "macos"))'.dependencies]
-zip = { version = "2.3.0", optional = true }
+zip = { version = "2.3.0", optional = true, default-features = false }
 
 
 [target.'cfg(windows)'.dependencies]
