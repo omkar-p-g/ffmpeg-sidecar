@@ -247,7 +247,6 @@ dependencies = [
  "tar",
  "ureq",
  "winapi",
- "xz2",
  "zip",
 ]
 

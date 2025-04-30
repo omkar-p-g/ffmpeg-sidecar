@@ -177,17 +177,6 @@ pub fn unpack_ffmpeg(from_archive: &PathBuf, binary_folder: &Path) -> Result<()>
 
   let file = File::open(from_archive).context("Failed to open archive file")?;
 
-  #[cfg(target_os = "linux")]
-  {
-    // Extracts .tar.xz file
-    let tar_xz = xz2::read::XzDecoder::new(file);
-    let mut archive = tar::Archive::new(tar_xz);
-
-    archive
-      .unpack(&temp_folder)
-      .context("Failed to unpack ffmpeg")?;
-  }
-
   #[cfg(not(target_os = "linux"))]
   {
     // Extracts .zip file
